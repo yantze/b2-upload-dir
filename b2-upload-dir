@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs')
 const { promisify } = require('util')
 const { spawn } = require('child_process')
@@ -13,6 +15,7 @@ const fsp = {
  */
 function uploadFile(bucketName, fileRelativePath, dstPath) {
     console.log('Task: buckName:', bucketName, 'srcPath:', fileRelativePath, 'dstPath:', dstPath)
+    console.log('-------:', 'b2', 'upload-file', bucketName, fileRelativePath, dstPath)
     spawn('b2', ['upload-file', bucketName, fileRelativePath, dstPath], {
         stdio: 'inherit',
     })

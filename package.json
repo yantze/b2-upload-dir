@@ -1,13 +1,16 @@
 {
-  "name": "b2-upload-dir",
-  "version": "1.0.0",
-  "description": "upload dir to b2 with only privileage wirteFiles",
-  "main": "index.js",
-  "scripts": {
-      "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": ["b2", "upload"],
-  "author": "yantze",
-  "license": "MIT"
+    "name": "b2-upload-dir",
+    "description": "upload dir to b2 with only privileage wirteFiles",
+    "version": "1.0.0",
+    "author": "Yantze <ivastiny@gmail.com> (https://vastiny.com)",
+    "main": "b2-upload-dir",
+    "bin": {
+        "b2-upload-dir": "./b2-upload-dir"
+    },
+    "scripts": {
+        "start": "b2-upload-dir",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": ["b2", "upload"],
+    "license": "MIT"
 }
