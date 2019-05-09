@@ -11,8 +11,9 @@ const fsp = {
 /**
  * Upload the file
  */
-function uploadFile(fileRelativePath, dstPath) {
-    spawn('b2', ['upload-file', 'bucket-name', fileRelativePath, path.join('dstDir', dstPath)], {
+function uploadFile(bucketName, fileRelativePath, dstPath) {
+    console.log('Task: buckName:', bucketName, 'srcPath:', fileRelativePath, 'dstPath:', dstPath)
+    spawn('b2', ['upload-file', bucketName, fileRelativePath, dstPath], {
         stdio: 'inherit',
     })
 }
@@ -20,8 +21,8 @@ function uploadFile(fileRelativePath, dstPath) {
 /**
  * Check all files and upload
  */
-async function main(dPath) {
-    let rootPath = path.normalize(dPath)
+async function main(bucketName, srcPath, dstPath) {
+    let rootPath = path.normalize(srcPath)
 
     if (!path.isAbsolute(rootPath)) {
         rootPath = path.join(process.cwd(), rootPath)
@@ -53,7 +54,7 @@ async function main(dPath) {
             const filePath = path.join(dirPath, file)
             const fileInfo = await fsp.lstat(filePath)
             if (fileInfo.isFile()) {
-                uploadFile(filePath, filePath.slice(rootPath.length))
+                uploadFile(bucketName, filePath, path.join(dstPath, filePath.slice(rootPath.length)))
             } else {
                 travel(filePath)
             }
@@ -64,6 +65,21 @@ async function main(dPath) {
 
 }
 
-const dPath = '.'
-main(dPath)
 
+/**
+ * arg1: bucketName
+ * arg2: srcPath
+ * arg3: dstPath
+ */
+const argvLen = process.argv.length
+if (argvLen < 4) {
+    console.log(`
+    How to use:
+        b2-upload-dir bucketName srcPath dstPath\n`)
+} else {
+    const bucketName = process.argv[argvLen - 3]
+    const srcPath = process.argv[argvLen - 2]
+    const dstPath = process.argv[argvLen - 1]
+    console.log('path:', bucketName, srcPath, dstPath)
+    main(bucketName, srcPath, dstPath)
+}
