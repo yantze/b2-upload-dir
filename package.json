@@ -1,0 +1,13 @@
+{
+  "name": "b2-upload-dir",
+  "version": "1.0.0",
+  "description": "upload dir to b2 with only privileage wirteFiles",
+  "main": "index.js",
+  "scripts": {
+      "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["b2", "upload"],
+  "author": "yantze",
+  "license": "MIT"
+}
