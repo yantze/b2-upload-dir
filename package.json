@@ -11,6 +11,10 @@
         "start": "b2-upload-dir",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "keywords": ["b2", "upload"],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yantze/b2-upload-dir.git"
+    },
+    "keywords": ["b2", "upload", "bulk"],
     "license": "MIT"
 }
