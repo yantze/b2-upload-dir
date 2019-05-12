@@ -1,7 +1,7 @@
 {
     "name": "b2-upload-dir",
     "description": "upload dir to b2 with only privileage wirteFiles",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Yantze <ivastiny@gmail.com> (https://vastiny.com)",
     "main": "b2-upload-dir",
     "bin": {

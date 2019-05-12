@@ -2,7 +2,7 @@
 Upload files in bulk with `b2 upload-file`, which can be used to write only.
 
 ## INSTALL
-Must install [`b2`](https://www.backblaze.com/b2/docs/quick_command_line.html<Paste>) first.
+Must install [`b2`](https://www.backblaze.com/b2/docs/quick_command_line.html), then install `b2-upload-dir`.
 ```
 npm install -g b2-upload-dir
 ```
